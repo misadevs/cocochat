@@ -13,9 +13,9 @@ public class ConfigManager {
     private Properties properties;
     
     // Valores por defecto
-    private static final String DEFAULT_DB_URL = "jdbc:postgresql://ep-crimson-band-a45r8g9i-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require";
-    private static final String DEFAULT_DB_USER = "neondb_owner";
-    private static final String DEFAULT_DB_PASSWORD = "npg_t4HnmWoG7bNO";
+    private static final String DEFAULT_DB_URL = "";
+    private static final String DEFAULT_DB_USER = "";
+    private static final String DEFAULT_DB_PASSWORD = "";
     private static final String DEFAULT_SERVER_HOST = "localhost";
     private static final int DEFAULT_SERVER_PORT = 5000;
     
