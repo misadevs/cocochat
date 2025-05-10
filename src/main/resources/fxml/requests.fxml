@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.RequestsController"
+            stylesheets="/css/style.css"
+            prefHeight="400.0" prefWidth="600.0">
+    
+    <top>
+        <VBox alignment="CENTER" spacing="10" styleClass="panel">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Text styleClass="title-label" text="Solicitudes"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane>
+            <tabs>
+                <Tab text="Solicitudes de Amistad">
+                    <content>
+                        <VBox spacing="10" styleClass="panel">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            <ListView fx:id="friendRequestsListView" VBox.vgrow="ALWAYS" />
+                            <HBox spacing="10" alignment="CENTER">
+                                <Button fx:id="acceptFriendRequestButton" text="Aceptar" onAction="#handleAcceptFriendRequest" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                <Button fx:id="rejectFriendRequestButton" text="Rechazar" onAction="#handleRejectFriendRequest" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Invitaciones a Grupos">
+                    <content>
+                        <VBox spacing="10" styleClass="panel">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            <ListView fx:id="groupRequestsListView" VBox.vgrow="ALWAYS" />
+                            <HBox spacing="10" alignment="CENTER">
+                                <Button fx:id="acceptGroupRequestButton" text="Aceptar" onAction="#handleAcceptGroupRequest" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                <Button fx:id="rejectGroupRequestButton" text="Rechazar" onAction="#handleRejectGroupRequest" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="panel">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+            <Button fx:id="closeButton" text="Cerrar" onAction="#handleClose" />
+        </HBox>
+    </bottom>
+</BorderPane> 
