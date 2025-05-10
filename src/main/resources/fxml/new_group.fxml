@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.NewGroupController"
+            stylesheets="/css/style.css"
+            prefHeight="500.0" prefWidth="400.0">
+    
+    <top>
+        <VBox alignment="CENTER" spacing="10" styleClass="panel">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Text styleClass="title-label" text="Nuevo Grupo"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="panel">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            
+            <Label text="Nombre del grupo" />
+            <TextField fx:id="groupNameField" promptText="Ingresa un nombre para el grupo" />
+            
+            <Label text="Agregar participantes (mínimo 2)" />
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="searchField" promptText="Buscar usuario..." HBox.hgrow="ALWAYS" />
+                <Button fx:id="searchButton" text="Buscar" onAction="#handleSearch" />
+            </HBox>
+            
+            <ListView fx:id="usersListView" VBox.vgrow="ALWAYS" />
+            
+            <Label text="Participantes seleccionados:" />
+            <ListView fx:id="selectedUsersListView" VBox.vgrow="ALWAYS" />
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="addParticipantButton" text="Agregar" onAction="#handleAddParticipant" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="removeParticipantButton" text="Quitar" onAction="#handleRemoveParticipant" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="panel">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+            <Button fx:id="cancelButton" text="Cancelar" onAction="#handleCancel" />
+            <Button fx:id="createButton" text="Crear Grupo" onAction="#handleCreate" disable="true" />
+        </HBox>
+    </bottom>
+</BorderPane> 

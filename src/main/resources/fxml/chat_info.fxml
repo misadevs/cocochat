@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.ChatInfoController"
+            stylesheets="/css/style.css"
+            prefHeight="400.0" prefWidth="400.0">
+    
+    <top>
+        <VBox alignment="CENTER" spacing="10" styleClass="panel">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Text fx:id="chatNameText" styleClass="title-label" text="Nombre del Chat"/>
+            <Text fx:id="chatTypeText" styleClass="subtitle-label" text="Tipo de Chat"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="panel">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            
+            <Label text="Participantes" />
+            <ListView fx:id="participantsListView" VBox.vgrow="ALWAYS" />
+            
+            <HBox spacing="10" alignment="CENTER" fx:id="groupActionsContainer">
+                <Button fx:id="addParticipantButton" text="Agregar Participante" onAction="#handleAddParticipant" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="leaveGroupButton" text="Salir del Grupo" onAction="#handleLeaveGroup" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER" fx:id="temporaryActionsContainer">
+                <Button fx:id="sendFriendRequestButton" text="Enviar Solicitud de Amistad" onAction="#handleSendFriendRequest" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="endChatButton" text="Finalizar Chat" onAction="#handleEndChat" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="panel">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+            <Button fx:id="closeButton" text="Cerrar" onAction="#handleClose" />
+        </HBox>
+    </bottom>
+</BorderPane> 

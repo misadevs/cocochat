@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.MainController"
+            stylesheets="/css/style.css"
+            prefHeight="600.0" prefWidth="800.0">
+    
+    <!-- Barra superior con el nombre de usuario y opciones -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="panel">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+            <Label fx:id="usernameLabel" styleClass="subtitle-label" HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="requestsButton" text="Solicitudes" onAction="#handleViewRequests" />
+            <Button fx:id="logoutButton" text="Cerrar sesión" onAction="#handleLogout" />
+        </HBox>
+    </top>
+    
+    <!-- Panel lateral con lista de chats -->
+    <left>
+        <VBox spacing="10" styleClass="panel" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="searchField" promptText="Buscar usuario..." HBox.hgrow="ALWAYS" />
+                <Button fx:id="searchButton" text="Buscar" onAction="#handleSearch" />
+            </HBox>
+            
+            <TabPane VBox.vgrow="ALWAYS">
+                <tabs>
+                    <Tab text="Chats Temporales">
+                        <content>
+                            <ListView fx:id="temporaryChatsListView" VBox.vgrow="ALWAYS" />
+                        </content>
+                    </Tab>
+                    <Tab text="Amigos">
+                        <content>
+                            <ListView fx:id="friendChatsListView" VBox.vgrow="ALWAYS" />
+                        </content>
+                    </Tab>
+                    <Tab text="Grupos">
+                        <content>
+                            <ListView fx:id="groupChatsListView" VBox.vgrow="ALWAYS" />
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="newChatButton" text="Nuevo Chat" onAction="#handleNewChat" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="newGroupButton" text="Nuevo Grupo" onAction="#handleNewGroup" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </left>
+    
+    <!-- Área central que contiene tanto la pantalla de bienvenida como el área de chat -->
+    <center>
+        <StackPane>
+            <!-- Mensaje inicial cuando no hay chat seleccionado -->
+            <StackPane fx:id="welcomePane">
+                <VBox alignment="CENTER" spacing="20">
+                    <Text styleClass="title-label" text="CocoChat"/>
+                    <Text styleClass="subtitle-label" text="Selecciona un chat para comenzar"/>
+                    <Text text="O crea un nuevo chat usando los botones de la izquierda"/>
+                </VBox>
+            </StackPane>
+            
+            <!-- Área principal de chat -->
+            <BorderPane fx:id="chatArea" visible="false">
+                <!-- Cabecera del chat actual -->
+                <top>
+                    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="panel">
+                        <padding>
+                            <Insets top="10" right="15" bottom="10" left="15"/>
+                        </padding>
+                        <Label fx:id="currentChatNameLabel" styleClass="subtitle-label" HBox.hgrow="ALWAYS"/>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="chatInfoButton" text="Info" onAction="#handleChatInfo" />
+                    </HBox>
+                </top>
+                
+                <!-- Área de mensajes -->
+                <center>
+                    <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="message-area">
+                        <VBox fx:id="messagesContainer" spacing="10">
+                            <padding>
+                                <Insets top="10" right="15" bottom="10" left="15"/>
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+                </center>
+                
+                <!-- Área para escribir mensajes -->
+                <bottom>
+                    <HBox spacing="10" alignment="CENTER" styleClass="panel">
+                        <padding>
+                            <Insets top="10" right="15" bottom="10" left="15"/>
+                        </padding>
+                        <TextField fx:id="messageField" promptText="Escribe un mensaje..." HBox.hgrow="ALWAYS" onAction="#handleSendMessage"/>
+                        <Button fx:id="sendButton" text="Enviar" onAction="#handleSendMessage" />
+                    </HBox>
+                </bottom>
+            </BorderPane>
+        </StackPane>
+    </center>
+</BorderPane> 

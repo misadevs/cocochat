@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.controller.LoginController"
+           stylesheets="/css/style.css"
+           prefHeight="600.0" prefWidth="800.0">
+    <children>
+        <VBox alignment="CENTER" spacing="20" styleClass="panel" maxWidth="400">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+            
+            <Text styleClass="title-label" text="CocoChat"/>
+            <Text styleClass="subtitle-label" text="Inicia sesión o crea una cuenta"/>
+            
+            <TextField fx:id="usernameField" promptText="Nombre de usuario" />
+            <PasswordField fx:id="passwordField" promptText="Contraseña" />
+            
+            <HBox alignment="CENTER_RIGHT">
+                <Label fx:id="forgotPasswordLink" text="¿Olvidaste tu contraseña?" styleClass="link-label" onMouseClicked="#handleForgotPassword" />
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="loginButton" text="Iniciar sesión" onAction="#handleLogin" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="registerButton" text="Registrarse" onAction="#handleRegister" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            
+            <Label fx:id="statusLabel" styleClass="status-label" textFill="RED" alignment="CENTER" />
+        </VBox>
+    </children>
+</StackPane> 

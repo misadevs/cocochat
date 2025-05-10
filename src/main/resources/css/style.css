@@ -1,0 +1,140 @@
+.root {
+  -fx-font-family: "Segoe UI", Arial, sans-serif;
+  -fx-background-color: #f5f5f5;
+}
+
+/* Colores principales */
+* {
+  -primary-color: #128c7e;
+  -secondary-color: #25d366;
+  -accent-color: #34b7f1;
+  -text-color: #333333;
+  -light-gray: #ececec;
+  -medium-gray: #9e9e9e;
+  -dark-gray: #707070;
+}
+
+/* Botones */
+.button {
+  -fx-background-color: -primary-color;
+  -fx-text-fill: white;
+  -fx-background-radius: 5px;
+  -fx-padding: 10px 20px;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
+}
+
+.button:hover {
+  -fx-background-color: derive(-primary-color, 10%);
+}
+
+.button:pressed {
+  -fx-background-color: derive(-primary-color, -10%);
+}
+
+/* Campos de texto */
+.text-field,
+.password-field {
+  -fx-background-color: white;
+  -fx-background-radius: 5px;
+  -fx-border-color: -light-gray;
+  -fx-border-radius: 5px;
+  -fx-padding: 10px;
+}
+
+.text-field:focused,
+.password-field:focused {
+  -fx-border-color: -primary-color;
+}
+
+/* Lista de chats */
+.list-view {
+  -fx-background-color: white;
+  -fx-background-radius: 5px;
+  -fx-border-color: -light-gray;
+  -fx-border-radius: 5px;
+}
+
+.list-cell {
+  -fx-background-color: white;
+  -fx-padding: 10px;
+}
+
+.list-cell:hover {
+  -fx-background-color: -light-gray;
+}
+
+.list-cell:selected {
+  -fx-background-color: derive(-primary-color, 70%);
+}
+
+/* Área de mensajes */
+.message-area {
+  -fx-background-color: white;
+  -fx-background-radius: 5px;
+  -fx-border-color: -light-gray;
+  -fx-border-radius: 5px;
+  -fx-padding: 10px;
+}
+
+/* Burbuja de mensaje enviado */
+.message-bubble-sent {
+  -fx-background-color: -primary-color;
+  -fx-background-radius: 15px 15px 0px 15px;
+  -fx-padding: 10px;
+  -fx-text-fill: white;
+}
+
+/* Burbuja de mensaje recibido */
+.message-bubble-received {
+  -fx-background-color: white;
+  -fx-background-radius: 15px 15px 15px 0px;
+  -fx-border-color: -light-gray;
+  -fx-border-radius: 15px 15px 15px 0px;
+  -fx-padding: 10px;
+  -fx-text-fill: -text-color;
+}
+
+/* Paneles */
+.panel {
+  -fx-background-color: white;
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+  -fx-padding: 15px;
+}
+
+/* Etiquetas de título */
+.title-label {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-text-fill: -primary-color;
+}
+
+/* Etiquetas de subtítulo */
+.subtitle-label {
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-text-fill: -text-color;
+}
+
+/* Enlaces */
+.hyperlink {
+  -fx-text-fill: -accent-color;
+  -fx-border-color: transparent;
+  -fx-padding: 0;
+}
+
+.hyperlink:hover {
+  -fx-text-fill: derive(-accent-color, 20%);
+  -fx-underline: true;
+}
+
+/* Iconos */
+.icon {
+  -fx-fill: -primary-color;
+}
+
+.icon:hover {
+  -fx-fill: derive(-primary-color, 20%);
+  -fx-cursor: hand;
+}
